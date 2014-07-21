@@ -10,7 +10,7 @@ endif
 
 # Enable this if you want to upload PX4 binary using the PX4 uplaoder python script
 ifeq ($(UPLOAD_PX4),)
-  UPLOAD_PX4 = yes
+  UPLOAD_PX4 = no
 endif
 
 # Compiler options here.
