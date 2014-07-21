@@ -1,0 +1,12 @@
+{
+    "board_id": 21, 
+    "magic": "stmstick", 
+    "description": "Firmware for the Stmstick board", 
+    "image": "", 
+    "build_time": 0, 
+    "summary": "stmstick",
+    "version": "0.1",
+    "image_size": 0,
+    "git_identity": "",
+    "board_revision": 0
+}
