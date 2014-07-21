@@ -10,7 +10,7 @@ endif
 
 # Enable this if you want to upload PX4 binary using the PX4 uplaoder python script
 ifeq ($(UPLOAD_PX4),)
-  UPLOAD_PX4 = yes
+  UPLOAD_PX4 = no
 endif
 
 # Compiler options here.
@@ -83,6 +83,7 @@ CHIBIOS = ../../../chibios
 endif
 
 include ../../board/board.mk
+include ../../drivers/drivers.mk
 include $(CHIBIOS)/os/hal/platforms/STM32F4xx/platform.mk
 include $(CHIBIOS)/os/hal/hal.mk
 include $(CHIBIOS)/os/ports/GCC/ARMCMx/STM32F4xx/port.mk
@@ -101,6 +102,7 @@ CSRC = $(PORTSRC) \
        $(HALSRC) \
        $(PLATFORMSRC) \
        $(BOARDSRC) \
+       $(DRIVERSRC) \
        $(CHIBIOS)/os/various/chprintf.c \
        main.c
 
@@ -133,7 +135,7 @@ ASMSRC = $(PORTASM)
 
 INCDIR = $(PORTINC) $(KERNINC) \
          $(HALINC) $(PLATFORMINC) $(BOARDINC) \
-         $(CHIBIOS)/os/various
+         $(DRIVERINC) $(CHIBIOS)/os/various
 
 #
 # Project, sources and paths
@@ -162,7 +164,7 @@ HEX  = $(CP) -O ihex
 BIN  = $(CP) -O binary
 
 MKFW	 = ../../bootloader/px_mkfw.py
-UPLOADER = ../../bootlodaer/px_uploader.py
+UPLOADER = ../../bootloader/px_uploader.py
 
 # ARM-specific options here
 AOPT =

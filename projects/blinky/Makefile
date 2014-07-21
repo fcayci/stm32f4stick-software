@@ -20,7 +20,7 @@ endif
 
 # C specific options here (added to USE_OPT).
 ifeq ($(USE_COPT),)
-  USE_COPT = 
+  USE_COPT =
 endif
 
 # C++ specific options here (added to USE_OPT).
@@ -35,7 +35,7 @@ endif
 
 # Linker extra options here.
 ifeq ($(USE_LDOPT),)
-  USE_LDOPT = 
+  USE_LDOPT =
 endif
 
 # Enable this if you want link time optimizations (LTO)
@@ -159,10 +159,10 @@ AS   = $(TRGT)gcc -x assembler-with-cpp
 OD   = $(TRGT)objdump
 SZ   = $(TRGT)size
 HEX  = $(CP) -O ihex
-BIN  = $(CP) -O binary 
+BIN  = $(CP) -O binary
 
-MKFW	 = ../../boot/px_mkfw.py
-UPLOADER = ../../boot/px_uploader.py
+MKFW	 = ../../bootloader/px_mkfw.py
+UPLOADER = ../../bootloader/px_uploader.py
 
 # ARM-specific options here
 AOPT =
@@ -237,7 +237,7 @@ ifeq ($(USE_PX4_BOOTLOADER),yes)
 
 %.px4: %.bin $(LDSCRIPT)
 	@echo Generating $@ for px4 bootloader
-	python -u $(MKFW) --prototype ../../boot/stmstick.prototype \
+	python -u $(MKFW) --prototype ../../bootloader/stmstick.prototype \
 		--image $< > $@
 
 ifeq ($(UPLOAD_PX4),no)

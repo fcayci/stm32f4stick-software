@@ -16,11 +16,11 @@ Tested on Windows 7 and Mac OS. Win 8 and Linux is not yet tested.
 
 #### Windows
 
-* Program the board with the `boot/px4stick_bl.bin` bootloader binary using ST-Link Utility software
+* Program the board with the `bootloader/px4stick_bl.bin` bootloader binary using ST-Link Utility software
 * Download & extract ChibiStudio from http://sourceforge.net/projects/chibios/files/ChibiStudio/ under `C:\ChibiStudio\` directory
 * Download & install Python from https://www.python.org/download/releases/2.7.8/ (Windows x86 MSI Installer (2.7.8)) Make sure to enable `Add to PATH` section in the installation
 * Download & install PySerial from https://pypi.python.org/pypi/pyserial#downloads (pyserial-2.7.win32.exe)
-* Plug in the USB cable to the board. Open Windows Device Manager and find the unknown device. Right click on properties and update/install the driver. You will need to point Windows to the `driver` directory in the project. Once the driver have finished installing, the STMStick board will show up as a PX4 STMSTICK COM port in Device Manager
+* Plug in the USB cable to the board. Open Windows Device Manager and find the unknown device. Right click on properties and update/install the driver. You will need to point Windows to the `misc/win_driver` directory in the project. Once the driver have finished installing, the STMStick board will show up as a PX4 STMSTICK COM port in Device Manager
 
 
 * Download stmstick_blinky.zip and extract it under `C:\ChibiStudio\`
@@ -34,7 +34,7 @@ Tested on Windows 7 and Mac OS. Win 8 and Linux is not yet tested.
 
 #### Linux/Mac OS
 
-* Program the board with the `px4stick_bl.bin` bootloader binary using [stlink](https://github.com/texane/stlink) software: `st-flash write boot/px4stmstick_bl.bin 0x08000000`
+* Program the board with the `px4stick_bl.bin` bootloader binary using [stlink](https://github.com/texane/stlink) software: `st-flash write bootloader/px4stmstick_bl.bin 0x08000000`
 * Install Python 2.7 and PySerial
 * OPTIONAL: Import the project to eclipse
 * Plug-in the board, enable UPLOAD_PX4 in Makefile, and hit Build. This should upload the binary using the python script
