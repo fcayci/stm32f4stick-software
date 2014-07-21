@@ -1,6 +1,7 @@
 ### ChibiOS/RT running on STM32F4Stick board
 
 There are two options to program the board:
+
 1. ST-Link via SWD pins using an external programmer
 2. PX4 bootloader using USB cable
 
@@ -9,7 +10,7 @@ You can choose to generate binaries for each option by enabling/disabling(yes/no
 * Enabling `UPLOAD_PX4` will automatically attempt to download the binary using the PX4 uploader python script if `USE_PX4_BOOTLOADER` is enabled
 * A0 and A1 pins are tied to LEDs, so they will be blinking when the bootloader is waiting for a binary
 
-Tested on Windows 7 and Mac OS. Win 8/Linux is not yet tested.
+Tested on Windows 7 and Mac OS. Win 8 and Linux is not yet tested.
 
 #### Instructions for setting up the PX4 bootloader
 
@@ -33,7 +34,7 @@ Tested on Windows 7 and Mac OS. Win 8/Linux is not yet tested.
 
 #### Linux/Mac OS
 
-* Program the board with the `px4stick_bl.bin` bootloader binary using (stlink)[https://github.com/texane/stlink] software: `st-flash write boot/px4stmstick_bl.bin 0x08000000`
+* Program the board with the `px4stick_bl.bin` bootloader binary using [stlink](https://github.com/texane/stlink) software: `st-flash write boot/px4stmstick_bl.bin 0x08000000`
 * Install Python 2.7 and PySerial
 * OPTIONAL: Import the project to eclipse
 * Plug-in the board, enable UPLOAD_PX4 in Makefile, and hit Build. This should upload the binary using the python script
