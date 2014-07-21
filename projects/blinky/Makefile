@@ -10,7 +10,7 @@ endif
 
 # Enable this if you want to upload PX4 binary using the PX4 uplaoder python script
 ifeq ($(UPLOAD_PX4),)
-  UPLOAD_PX4 = no
+  UPLOAD_PX4 = yes
 endif
 
 # Compiler options here.
@@ -79,17 +79,17 @@ PROJECT = stmstick
 
 # Imported source files and paths
 ifeq ($(CHIBIOS),)
-CHIBIOS = ../chibios
+CHIBIOS = ../../../chibios
 endif
 
-include board/board.mk
+include ../../board/board.mk
 include $(CHIBIOS)/os/hal/platforms/STM32F4xx/platform.mk
 include $(CHIBIOS)/os/hal/hal.mk
 include $(CHIBIOS)/os/ports/GCC/ARMCMx/STM32F4xx/port.mk
 include $(CHIBIOS)/os/kernel/kernel.mk
 
 ifeq ($(USE_PX4_BOOTLOADER),yes)
-	LDSCRIPT= board/STM32F405xG_PX4.ld
+	LDSCRIPT= ../../board/STM32F405xG_PX4.ld
 else
 	LDSCRIPT= $(PORTLD)/STM32F407xG.ld
 endif
@@ -161,8 +161,8 @@ SZ   = $(TRGT)size
 HEX  = $(CP) -O ihex
 BIN  = $(CP) -O binary 
 
-MKFW	 = boot/px_mkfw.py
-UPLOADER = boot/px_uploader.py
+MKFW	 = ../../boot/px_mkfw.py
+UPLOADER = ../../boot/px_uploader.py
 
 # ARM-specific options here
 AOPT =
@@ -237,7 +237,7 @@ ifeq ($(USE_PX4_BOOTLOADER),yes)
 
 %.px4: %.bin $(LDSCRIPT)
 	@echo Generating $@ for px4 bootloader
-	python -u $(MKFW) --prototype boot/stmstick.prototype \
+	python -u $(MKFW) --prototype ../../boot/stmstick.prototype \
 		--image $< > $@
 
 ifeq ($(UPLOAD_PX4),no)
